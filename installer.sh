@@ -148,7 +148,7 @@ function firstStartup(){
     PARU_VERSION="1.11.1"
 
     cd $HOME/tmp
-    curl -LO https://github.com/Morganamilo/paru/releases/download/v$PARU_VERSION/paru-v$PARU_VERSION-x86_64.tar.zst
+    wget https://github.com/Morganamilo/paru/releases/download/v$PARU_VERSION/paru-v$PARU_VERSION-x86_64.tar.zst
     $HOME/.local/share/junest/bin/junest proot --fakeroot tar -xvf $HOME/tmp/paru-v$PARU_VERSION-x86_64.tar.zst >> $logFile
     cp paru $variablesDirectory/linuximage/usr/bin/paru
     cp paru.conf $variablesDirectory/linuximage/etc/paru.conf
@@ -162,7 +162,7 @@ function firstStartup(){
 
     # Gotty Quick Installation
     cd /tmp
-    curl -LO https://github.com/sorenisanerd/gotty/releases/download/v1.5.0/gotty_v1.5.0_linux_amd64.tar.gz
+    wget https://github.com/sorenisanerd/gotty/releases/download/v1.5.0/gotty_v1.5.0_linux_amd64.tar.gz
     $sudoj tar -xvf gotty_linux_amd64.tar.gz
     cp gotty $variablesDirectory/linuximage/usr/bin
 
@@ -297,7 +297,7 @@ function checkInstaller(){
 # Wrappers creation
 createWrappers(){
     echo "Downloading wrapper script..."
-    curl -L https://raw.githubusercontent.com/ambientxd/RootlessArch/main/binwrappers/wrapper.sh -o /tmp/wrapper.sh
+    wget https://raw.githubusercontent.com/ambientxd/RootlessArch/main/binwrappers/wrapper.sh -o /tmp/wrapper.sh
 
     echo "Copying files..."
     cp "$filePath" $variablesDirectory/wrapinstaller.sh # Make a installer.sh backup in case of movement or deletion.
